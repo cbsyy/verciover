@@ -1,0 +1,267 @@
+############################### 基本信息 ###############################
+info:
+  name: bingluover's Blog
+  version: '5.0.0'
+  docs: https://volantis.js.org/
+
+############################### 导航栏 ###############################
+navbar:
+  logo: 
+    img: /images/avatar.jpg
+    title: ''
+    url: /
+  height: 64px
+
+  menu:
+    - name: 首页
+      icon: fa-solid fa-home     # 更新图标格式
+      url: /
+
+    - name: 分类
+      icon: fa-solid fa-folder-open
+      url: /categories/
+
+    - name: 标签
+      icon: fa-solid fa-tags
+      url: /tags/
+
+    - name: 归档
+      icon: fa-solid fa-archive
+      url: /archives/
+
+    - name: 友链
+      icon: fa-solid fa-link
+      url: /links/
+
+    - name: 关于
+      icon: fa-solid fa-info-circle
+      url: /about/
+
+############################### 布局设置 ###############################
+layout:
+  # 分类页面布局
+  category:
+    type: category
+    title: 文章分类
+    subtitle: 
+    description: 所有文章分类
+    post_type: true
+    post_count: true
+
+  # 标签页面布局
+  tag:
+    type: tag
+    title: 文章标签
+    subtitle: 
+    description: 所有文章标签
+    post_type: true
+    post_count: true
+
+############################### 封面 ###############################
+############################### 封面 ###############################
+cover:
+  height_scheme: full      # 保持全屏显示
+  layout_scheme: featured
+  display:
+    home: true
+    archive: true
+    others: false
+  background: https://pic.rmb.bdstatic.com/bjh/240213/news/914b8c0f9814b14c5fedeec7ec6615df5511.jpeg
+  title: "bingluover's Blog"
+  subtitle: '分享生活，记录成长'
+  features:
+    - name: 首页
+      icon: fas fa-home
+      url: /
+
+    - name: 分类
+      icon: fas fa-folder-open
+      url: /categories/
+
+    - name: 标签
+      icon: fas fa-tags
+      url: /tags/
+
+    - name: 归档
+      icon: fas fa-archive
+      url: /archives/
+
+    - name: 友链
+      icon: fas fa-link
+      url: /links/
+      
+    - name: 关于
+      icon: fas fa-info-circle
+      url: /about/
+
+############################### 功能配置 ###############################
+
+
+############################### 文章 ###############################
+article:
+  # 文章元信息
+  meta:
+    date: true
+    category: true
+    tag: true
+    
+  # 文章预览
+  preview:
+    scheme: landscape
+    pin_icon: fas fa-thumbtack
+    auto_excerpt: 200
+    readmore: 阅读更多 »
+
+  # 文章页脚部件
+  footer_widget:
+    # 分类标签部件
+    - id: categories
+      class: categories
+      display: [desktop, mobile]
+
+    - id: tags
+      class: tags
+      display: [desktop, mobile]
+
+############################### 侧边栏 ###############################
+sidebar:
+  position: right
+  widgets:
+    # 作者信息
+    - id: welcome
+      class: welcome
+      header:
+        icon: fas fa-smile
+        title: 欢迎
+        avatar: /images/avatar.jpg
+      content:
+        - '欢迎来到 bingluover 的博客'
+        - '这里记录着我的学习与生活'
+    
+    # 文章目录
+    - id: toc
+      class: toc
+      header:
+        icon: fas fa-list
+        title: 目录
+    
+    # 文章分类
+    - id: category
+      class: category
+      header:
+        icon: fas fa-folder-open
+        title: 文章分类
+        url: /blog/categories/ 
+      order_by: length
+    
+    # 标签云
+    - id: tagcloud
+      class: tagcloud
+      header:
+        icon: fas fa-tags
+        title: 热门标签
+        url: /blog/tags/  
+      min_font: 14
+      max_font: 24
+      color: true
+      start_color: '#999'
+      end_color: '#555'
+    
+    # 最近文章
+    - id: recent
+      class: recent
+      header:
+        icon: fas fa-clock
+        title: 最近文章
+      rows: 5
+
+############################### 页脚 ###############################
+site_footer:
+  layout: [social, info, copyright]
+  social:
+    - icon: fas fa-envelope
+      url: mailto:your@email.com
+    - icon: fab fa-github
+      url: https://github.com/bingluover
+  copyright: '[Copyright © 2024 bingluover] Powered by [Hexo](https://hexo.io) & [Volantis](https://volantis.js.org)'
+
+############################### 功能配置 ###############################
+plugins:
+
+  
+  # 添加滚动插件配置
+  scrollreveal:
+    enable: true
+    js: https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js
+    distance: 32px
+    duration: 800
+    interval: 20
+    scale: 1
+  # 代码高亮
+  code_highlight: highlightjs
+  
+  # 图片预览
+  fancybox: true
+  
+  # 返回顶部
+  back_to_top: true
+  
+  # 代码复制
+  clipboard: true
+
+############################### 搜索 ###############################
+############################### 搜索 ###############################
+############################### 搜索 ###############################
+search:
+  enable: true
+  service: local  # 修改为 local
+  js: /js/search/local-search.js  # 使用本地搜索
+  field: post
+  format: html
+  limit: 10000
+  placeholder: '搜索文章...'
+  
+  local_search:  # 添加本地搜索配置
+    enable: true
+    preload: false
+    CDN:
+      enable: true
+      url: https://cdn.jsdelivr.net/gh/volantis-x/hexo-theme-volantis@master/source/js/search/local-search.js
+
+############################### 优化配置 ###############################
+style:
+  navbar:
+    logo:
+      img:
+        height: 40px          # 头像高度
+        width: 40px           # 头像宽度
+        border-radius: 50%    # 圆形头像
+        margin-left: 10px     # 左侧间距
+
+############################### 路径设置 ###############################
+path:
+  # 分类和标签路径
+  category: /blog/categories/:name/ 
+  tag: /blog/tags/:name/
+
+############################### 页面元数据 ###############################
+meta:
+  # 文章分类
+  category:
+    icon: fas fa-folder-open
+    url: /blog/categories/:name/ 
+
+  # 文章标签
+  tag:
+    icon: fas fa-tag
+    url: /blog/tags/:name/ 
+
+############################### 加载动画 ###############################
+loading:
+  loading: 加载中...
+
+############################### 图片懒加载 ###############################
+lazyload:
+  enable: true
+  onlypost: false
+
