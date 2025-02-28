@@ -4,7 +4,15 @@
 
 # Site
 # 网站基本信息
-title: bingluover's Blog
+# Site
+title: Bingluover's Blog
+# author:
+#   name: Rui Yang
+#   # avatar: 你的头像链接
+#   # url: 你的个人网站链接
+
+language: zh-CN
+timezone: Asia/Shanghai
 subtitle: '分享生活，记录成长'
 description: '这是一个分享技术、生活和成长的个人博客。包含技术探讨、开发笔记、生活随笔、人生感悟等内容。欢迎志同道合的朋友一起交流学习！'
 keywords:
@@ -14,19 +22,27 @@ keywords:
   - 归档
   - 友链
 # 搜索配置
+
 # Search
 search:
-  path: search.xml
-  field: all  # 搜索范围：post(文章) | page(页面) | all(所有)
-  content: true  # 是否搜索内容
-  format: html
-  limit: 10000
+  path: search.json
+  field: post
+
+
+# 搜索插件配置
+# Feed
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: https://cbsyy.github.io
+root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
+
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
   trailing_html: true # Set to false to remove trailing '.html' from permalinks
 
@@ -50,7 +66,7 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 syntax_highlighter: highlight.js
@@ -111,4 +127,36 @@ theme: volantis
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: git
+  repo: https://github.com/cbsyy/cbsyy.github.io.git
+  branch: main
+
+# Security Plugin Config
+encrypt:
+  enable: true
+  default_password:  # 默认密码
+  default_abstract: 这是一篇加密的文章，请输入密码继续阅读。
+  default_message: 请输入访问密码。
+  wrong_pass_message: 密码错误，请重试。
+  wrong_hash_message: 文章校验失败。
+
+
+  # Search Config
+jsonContent:
+  meta: true
+  words: true
+  pages:
+    title: true
+    text: true
+    path: true
+    date: true
+    excerpt: true
+    preview: true
+  posts:
+    title: true
+    text: true
+    path: true
+    date: true
+    excerpt: true
+    tags: true
+    categories: true

@@ -57,7 +57,7 @@ layout:
     post_type: true
     post_count: true
 
-############################### 封面 ###############################
+
 ############################### 封面 ###############################
 cover:
   height_scheme: full      # 保持全屏显示
@@ -98,13 +98,25 @@ cover:
 
 
 ############################### 文章 ###############################
+############################### 文章 ###############################
+############################### 文章 ###############################
 article:
   # 文章元信息
   meta:
-    date: true
-    category: true
-    tag: true
+    # 完全禁用元信息显示
+    enable: false    # 添加这行，禁用所有元信息显示
     
+    # 或者单独控制各项
+    author: false    # 禁用作者显示
+    date: false     # 禁用日期显示
+    category: true  # 保留分类显示
+    tag: true      # 保留标签显示
+############################### 文章 ###############################
+author:
+  name: Rui Yang
+  # avatar: 你的头像链接
+  # url: 你的个人网站链接
+
   # 文章预览
   preview:
     scheme: landscape
@@ -128,8 +140,7 @@ sidebar:
   position: right
   widgets:
     # 作者信息
-    - id: welcome
-      class: welcome
+    - id: 冰露
       header:
         icon: fas fa-smile
         title: 欢迎
@@ -214,20 +225,12 @@ plugins:
 ############################### 搜索 ###############################
 search:
   enable: true
-  service: local  # 修改为 local
-  js: /js/search/local-search.js  # 使用本地搜索
-  field: post
-  format: html
-  limit: 10000
-  placeholder: '搜索文章...'
-  
-  local_search:  # 添加本地搜索配置
-    enable: true
-    preload: false
-    CDN:
-      enable: true
-      url: https://cdn.jsdelivr.net/gh/volantis-x/hexo-theme-volantis@master/source/js/search/local-search.js
-
+  service: hexo  # 使用 hexo 搜索
+  js: https://cdn.jsdelivr.net/npm/hexo-generator-json-content@latest/dist/json-content.min.js
+  field: post    # 搜索范围，可选 post | page | all
+  format: excerpt   # 内容返回格式，可选 html | raw | excerpt
+  limit: 10      # 最多显示的搜索结果数量
+  placeholder: "输入关键词搜索..."   # 搜索框占位文字
 ############################### 优化配置 ###############################
 style:
   navbar:
@@ -265,3 +268,5 @@ lazyload:
   enable: true
   onlypost: false
 
+comments:
+  enable: false  # 暂时禁用评论系统
